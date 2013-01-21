@@ -60,6 +60,11 @@
 	      text-align: right;
 	      font-size: 12px;
 	    }
+			div#options div#fortunes span {
+				cursor: pointer;
+				text-decoration: underline;
+				color: #F00;
+			}
 	    div#options div#bar {
 	      clear: left;
 	      text-align: right;
@@ -71,18 +76,60 @@
 	    	cursor: pointer;
 	    	color: #999;
 	    }
+	    div#new {
+	    	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+	    	width: 100%;
+				height: 100%;
+	    	position: absolute;
+	    	z-index: 9000;
+	    	top: 0;
+	    	left: 0;
+	    	display: none;
+
+	    }
+	    div#new fieldset {
+	    	position: absolute;
+	    	z-index: 9001;
+	    	top: 25%;
+	    	left: 25%;
+	    	width: 50%;
+	    	color: #FFF;
+	    	font-size: 12px;
+				background: none repeat scroll 0 0 rgba(0, 0, 0, 1.0);
+		    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+		    border-radius: 0px 0px 10px 10px;
+		    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
+	    }
+	    div#new textarea {
+	    	width: 100%;
+	    	height: 350px;
+	    }
 		</style>
 	</head>
 
 	<body>
 		<div id="options">
-			Select your Fortune Files:
+			Select Fortune Files:
 		  <div id="fortunes"></div>
 		  <div id="bar">
-		    <button id="save">Save / Close</button>
+		    <button id="options_new">New Custom Fortune</button>
+		    <button id="options_save">Save / Close</button>
 		  </div>
 		</div>
 		<div id="toggle">&#9881;</div>
+		<div id="new">
+			<fieldset>
+    		<legend>Create New/Update Fortune File:</legend>
+				<label for="new_name">Name:</label>
+				<input type="text" id="new_name" placeholder="my_quotes" />
+				<br />
+				<label for="new_content">Fortune Entries (separated by %):</label>
+				<textarea id="new_content"></textarea>
+				<button id="create">Create/Update</button>
+				<button id="delete">Delete</button>
+				<button id="cancel">Cancel</button>
+    	</fieldset>
+		</div>
 
 		<div id="wrapper">
 			<div id="cookie">

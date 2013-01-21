@@ -1,13 +1,14 @@
 New Tab Fortune
 ===============
 
-Remember the good old Unix Fortune command?  This Google Chrome extension shows you a random fortune message each time you open a new tab.  
+Remember the good old Unix Fortune command?  This Google Chrome extension shows you a random fortune message each time you open a new tab.  You can even add your own custom fortune file!
 
-Want to see more?  Feel free to fork and add more fortune files.
+Feel free to fork and add more fortune files.
 
 ## Screenshots ##
 ![Opening New Tab](https://github.com/stjohnjohnson/chrome-newtabfortune/raw/master/screenshots/new-tab.png)
 ![Selecting Options](https://github.com/stjohnjohnson/chrome-newtabfortune/raw/master/screenshots/options.png)
+![Custom Fortunes](https://github.com/stjohnjohnson/chrome-newtabfortune/raw/master/screenshots/custom.png)
 
 ## Fortune Files ##
 
@@ -67,6 +68,7 @@ zippy        | Quotes from the comic Zippy the Pinhead. | 1.0
 
  - 1.0 (2013.01.20): Inital release with Debian Fortune Files
  - 1.1 (2013.01.21): Adding Calvin & Hobbes, Chuck Norris, Simpsons Chalkboard, Disc World, Family Guy, Forest Gump, Firefly, Futurama, Hitchhiker's Guide to the Galaxy, Homer Simpson, Star Wars, and X-Files
+ - 1.2 (2013.01.21): Added ability to enter your own custom fortune files.  Data is now stored in Chrome cloud.
 
 ## Acknowledgments ##
 
@@ -78,6 +80,9 @@ zippy        | Quotes from the comic Zippy the Pinhead. | 1.0
  - Jon Oberheide <jon@oberheide.org> (fortune-mod-familyguy maintainer)
  - Clayton Carter (fortune-mod-homer maintainer)
  - Paul Kessler (fortune-mod-chucknorris maitainer)
+
+## References ##
+ - [Fortune Wikipedia](http://en.wikipedia.org/wiki/Fortune_(Unix))
 
 ## License ##
 

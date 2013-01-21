@@ -14,8 +14,8 @@ Want to see more?  Feel free to fork and add more fortune files.
 Fortune File | Description | Version
 ------------ | ----------- | -------
 art          | Broadly construed; it includes television and celebrities. | 1.0
-ascii-art    | each one worth a thousand words, I guess. | 1.0
-computers    | various fortunes that are computer-related.  This includes the 'joke' fortunes that are supposed to emulate system error messages, as well as some neat stuff. | 1.0
+ascii-art    | Each one worth a thousand words, I guess. | 1.0
+computers    | Various fortunes that are computer-related.  This includes the 'joke' fortunes that are supposed to emulate system error messages, as well as some neat stuff. | 1.0
 cookie       | Cookie file from Karl Lehenbauer's postings to alt.sources | 1.0
 definitions  | It ought to be all the 'definitions,' but what it really is, is all the definitions that have a first line ending with a colon. | 1.0
 drugs        | Alcohol and cigarettes, mostly.  Legal chemicals. | 1.0
@@ -42,16 +42,22 @@ politics     | Comments on man as a political animal.  Also police, soldiers, an
 riddles      | Not really riddles, necessarily, but mostly Q: A: | 1.0
 science      | Largely math and engineering, but some other interesting and amusing sorts of science-related apothegms.  Also technology. | 1.0
 songs-poems  | Stuff with meter, at least, and usually with rhymes. | 1.0
-sports       | You know.  Like on television.  ;-) | 1.0
+sports       | You know.  Like on television. | 1.0
 startrek     | Apparently quotes from Star Trek Classic.  Plus a bit. | 1.0
 translate-me | A small file containing non-English quotes without translations. | 1.0
-wisdom       | Zen, the True Meaning of Life, and other stupid lies. | 1.0
+wisdom       | Zen, the True Meaning of Life, etc. | 1.0
 work         | Really about the business world, and the pains of being a part of it.  The desperate problems of the wealthy.  Like that. | 1.0
 zippy        | Quotes from the comic Zippy the Pinhead. | 1.0
 
 ## Versions ##
 
  - 1.0 (2013.01.20): Inital release with Debian Fortune Files
+
+## Acknowledgments ##
+
+ - Dennis L. Clark <dbugger@progsoc.uts.edu.au> (fortune-mod maintainer)
+ - Amy A. Lewis <alewis@email.unc.edu> (fortune-mod maintainer)
+ - Florian La Roche <florian@jurix.jura.uni-sb.de> (fortune-mod maintainer)
 
 ## License ## 
 

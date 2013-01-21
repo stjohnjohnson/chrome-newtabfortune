@@ -1,12 +1,14 @@
 // Available collections
 var available = [
-  'art','ascii-art','computers','cookie','debian','definitions',
-  'drugs','education','ethnic','food','fortunes','goedel','humorists',
+  'art','ascii-art','calvin','chalkboard','chucknorris','computers',
+  'cookie','debian','definitions','discworld','drugs','education',
+  'ethnic','familyguy','fgump','firefly','food','fortunes','futurama',
+  'goedel','hitchhiker','homer','humorists',
   'kids','knghtbrd','law','linux','linuxcookie','literature','love',
   'magic','medicine','men-women','miscellaneous','news','paradoxum',
   'people','perl','pets','platitudes','politics','riddles','science',
-  'songs-poems','sports','startrek','translate-me','wisdom',
-  'work','zippy'
+  'songs-poems','sports','startrek','starwars','translate-me','wisdom',
+  'work','xfiles','zippy'
 ];
 var collections = {};
 

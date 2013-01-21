@@ -60,7 +60,7 @@ function restoreOptions() {
 
 // Generate new fortune message
 function newFortune() {
-  var collection,fortune;
+  var collection,fortune,output,limit;
 
   do {
     // Pick random fortune collection and fortune
@@ -68,6 +68,21 @@ function newFortune() {
     fortune = fetchRandomArray(collections[collection]);
     // Trim whitespace
     fortune = fortune.replace(/^\n*/, '').replace(/\s\s*$/, '');
+
+    // Fix messages longer than 80 characters
+    var limit = 0;
+    var output = '';
+    for (letter in fortune) {
+      limit++;
+      output += fortune[letter];
+      if (fortune[letter] === "\n") {
+        limit = 0;
+      } else if (limit > 80) {
+        output += "\n";
+        limit = 0;
+      }
+    }
+    fortune = output;
   } while (fortune === '');
 
   // Display

@@ -5,6 +5,9 @@ Remember the good old Unix Fortune command?  This Google Chrome extension shows 
 
 Feel free to fork and add more fortune files.
 
+## Installation ##
+Install directly from the [Chrome Web Store](https://chrome.google.com/webstore/detail/new-tab-fortune/jabfjoojiboeejfkgakhdocjdmhpnnkp)
+
 ## Screenshots ##
 ![Opening New Tab](https://github.com/stjohnjohnson/chrome-newtabfortune/raw/master/screenshots/new-tab.png)
 ![Selecting Options](https://github.com/stjohnjohnson/chrome-newtabfortune/raw/master/screenshots/options.png)
@@ -82,7 +85,7 @@ zippy        | Quotes from the comic Zippy the Pinhead. | 1.0
  - Paul Kessler (fortune-mod-chucknorris maitainer)
 
 ## References ##
- - [Fortune Wikipedia](http://en.wikipedia.org/wiki/Fortune_(Unix))
+ - [Fortune Wikipedia](http://en.wikipedia.org/wiki/Fortune_\(Unix\))
 
 ## License ##
 

@@ -79,6 +79,7 @@ function generateFortune() {
       output = '',
       limit = 0;
 
+  hasGenerated = true;
   do {
     // Pick random fortune collection and fortune
     collection = fetchRandomKey(collections);
@@ -106,34 +107,33 @@ function generateFortune() {
 }
 
 // Load a fortune file
-function loadFortune(file) {
+async function loadFortune(file) {
   var fileURL,xmlreq,fortunes;
 
-  // Load from file
-  if (available_core.indexOf(file) !== -1) {
-    fileURL = chrome.extension.getURL("fortunes/" + file);
-    xmlreq = new XMLHttpRequest();
-    xmlreq.open("GET", fileURL, false);
-    xmlreq.send();
-
-    // Store fortune collections
-    collections[file] = xmlreq.responseText.split("\n%");
-  } else {
-    fileURL = 'custom_' + file;
-    // Load from local storage
-    // @todo this is async, may cause trouble
-    chrome.storage.sync.get([fileURL], function(storage) {
-      // Store fortune collections
-      if (storage[fileURL]) {
-        collections[file] = storage[fileURL].split("\n%");
-      }
-
-      // Generate new fortune, in case we are the only one
-      if (!hasGenerated) {
-        generateFortune();
-      }
-    });
-  }
+  return new Promise(function (resolve, reject) {
+    // Load from file
+    if (available_core.indexOf(file) !== -1) {
+      fileURL = chrome.extension.getURL("fortunes/" + file);
+      xmlreq = new XMLHttpRequest();
+      xmlreq.addEventListener("load", function() {
+        // Store fortune collections
+        collections[file] = xmlreq.responseText.split("\n%");
+        resolve();
+      });
+      xmlreq.open("GET", fileURL);
+      xmlreq.send();
+    } else {
+      fileURL = 'custom_' + file;
+      // Load from local storage
+      chrome.storage.sync.get([fileURL], function(storage) {
+        // Store fortune collections
+        if (storage[fileURL]) {
+          collections[file] = storage[fileURL].split("\n%");
+        }
+        resolve();
+      });
+    }
+  });
 }
 
 // Load all selected fortune files
@@ -148,10 +148,12 @@ function reloadFortunes() {
       storage.selected = {};
     }
 
+    loadFuncs = [];
+
     // Load selected fortunes
     for (i in available) {
       if (storage.selected[available[i]] === true) {
-        loadFortune(available[i]);
+        loadFuncs.push(loadFortune(available[i]));
         count++;
       }
     }
@@ -160,19 +162,17 @@ function reloadFortunes() {
     if (count === 0) {
       for (i in available) {
         storage.selected[available[i]] = true;
-        loadFortune(available[i]);
+        loadFuncs.push(loadFortune(available[i]));
       }
 
       // Update settings
       chrome.storage.sync.set({ 'selected': storage.selected });
     }
 
-    // If something has loaded, show a fortune
-    if (Object.keys(collections).length > 0) {
-      hasGenerated = true;
+    Promise.all(loadFuncs).then(function () {
       // Generate new fortune
       generateFortune();
-    }
+    });
   });
 }
 

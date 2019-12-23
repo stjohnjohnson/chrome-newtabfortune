@@ -40,19 +40,27 @@ function saveOptions() {
   }
 
   // Update settings
-  chrome.storage.sync.set({'selected': selected}, function() {
+  chrome.storage.sync.set({
+    'selected': selected,
+    'theme': document.querySelector('input[name="theme"]:checked').value,
+  }, function() {
     reloadFortunes();
+    reloadTheme();
   });
 }
 
 // Restores select box state to saved value from localStorage.
 function restoreOptions() {
-  chrome.storage.sync.get(['selected'], function(storage) {
+  chrome.storage.sync.get(['selected', 'theme'], function(storage) {
     var i,fortune,item;
 
     // Create selected list if not exist
     if (!storage.selected) {
       storage.selected = {};
+    }
+    // Set default theme if not selected
+    if (!storage.theme) {
+      storage.theme = "light";
     }
 
     // Load selected fortunes
@@ -60,6 +68,8 @@ function restoreOptions() {
       item = document.querySelector("#fortune_" + available[i]);
       item.checked = (storage.selected[available[i]] === true);
     }
+
+    document.querySelector("#theme_" + storage.theme).checked = true;
   });
 }
 
@@ -128,11 +138,11 @@ function loadFortune(file) {
 
 // Load all selected fortune files
 function reloadFortunes() {
-  var i,count = 0;
+  var i, count = 0;
   // Clear collections
   collections = {};
   hasGenerated = false;
-  chrome.storage.sync.get(['selected'], function(storage) {
+  chrome.storage.sync.get(['selected'], function (storage) {
     // Create selected list if not exist
     if (!storage.selected) {
       storage.selected = {};
@@ -154,7 +164,7 @@ function reloadFortunes() {
       }
 
       // Update settings
-      chrome.storage.sync.set({'selected': storage.selected});
+      chrome.storage.sync.set({ 'selected': storage.selected });
     }
 
     // If something has loaded, show a fortune
@@ -163,6 +173,18 @@ function reloadFortunes() {
       // Generate new fortune
       generateFortune();
     }
+  });
+}
+
+// Reload the selected theme
+function reloadTheme() {
+   chrome.storage.sync.get(['theme'], function (storage) {
+    // Use default theme if not found
+    if (!storage.theme) {
+      storage.theme = "light";
+    }
+
+    document.querySelector('html').className = 'theme-' + storage.theme;
   });
 }
 
@@ -215,6 +237,8 @@ function getAvailable() {
 
     // Set settings
     restoreOptions();
+    // Display Theme
+    reloadTheme();
     // Reload
     reloadFortunes();
   });

@@ -1,143 +1,213 @@
 <html>
-	<head>
-		<title>New Tab</title>
-		<link href='http://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
-		<style>
-			body {
-				font-family: 'Oxygen Mono', monospace;
-				background-color: #FFF;
-				-webkit-touch-callout: none;
-				-webkit-user-select: none;
-				padding: 0;
-				margin: 0;
-			}
-			#wrapper {
-				width: 100%;
-				padding: 5% 0;
-				text-align: center;
-			}
-			div#cookie {
-				vertical-align: middle;
 
-				width: auto;
-				display: inline-block;
+<head>
+	<title>New Tab</title>
+	<link href='http://fonts.googleapis.com/css?family=Oxygen+Mono' rel='stylesheet' type='text/css'>
+	<style>
+		body {
+			font-family: 'Oxygen Mono', monospace;
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			padding: 0;
+			margin: 0;
+		}
 
-		    padding: 1em 1em 0em 1em;
+		#wrapper {
+			width: 100%;
+			padding: 5% 0;
+			text-align: center;
+		}
 
-		    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
-		    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		    border-radius: 5px 5px 5px 5px;
-		    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-			}
-			div#source {
-				position: relative;
-				float: right;
-				text-align: right;
-				font-size: 15px;
-				top: 30px;
-			}
-			div#fortune {
-				white-space: pre;
-				text-align: left;
-				font-size: 18px;
-				font-weight: 100;
-				line-height: 1em;
-	    	color: #FFF;
-	    	padding: 1em;
-			}
-			div#options {
-				display: none;
-				background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
-		    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		    border-radius: 0px 0px 10px 10px;
-		    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-		    color: white;
-		    padding: 1em;
-			}
-			div#options div#fortunes > div {
-	      width: 150px;
-	      float: left;
-	      text-align: right;
-	      font-size: 12px;
-	    }
-			div#options div#fortunes span {
-				cursor: pointer;
-				text-decoration: underline;
-				color: #F00;
-			}
-	    div#options div#bar {
-	      clear: left;
-	      text-align: right;
-	    }
-	    div#toggle {
-	    	font-size: 18px;
-	    	float: right;
-	    	padding: 5px 10px;
-	    	cursor: pointer;
-	    	color: #999;
-	    }
-	    div#new {
-	    	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
-	    	width: 100%;
-				height: 100%;
-	    	position: absolute;
-	    	z-index: 9000;
-	    	top: 0;
-	    	left: 0;
-	    	display: none;
+		div#cookie {
+			vertical-align: middle;
+			width: auto;
+			display: inline-block;
+			padding: 1em 1em 0em 1em;
+			border-radius: 5px 5px 5px 5px;
+		}
 
-	    }
-	    div#new fieldset {
-	    	position: absolute;
-	    	z-index: 9001;
-	    	top: 25%;
-	    	left: 25%;
-	    	width: 50%;
-	    	color: #FFF;
-	    	font-size: 12px;
-				background: none repeat scroll 0 0 rgba(0, 0, 0, 1.0);
-		    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		    border-radius: 0px 0px 10px 10px;
-		    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
-	    }
-	    div#new textarea {
-	    	width: 100%;
-	    	height: 350px;
-	    }
-		</style>
-	</head>
+		div#source {
+			position: relative;
+			float: right;
+			text-align: right;
+			font-size: 15px;
+			top: 30px;
+		}
 
-	<body>
-		<div id="options">
+		div#fortune {
+			white-space: pre;
+			text-align: left;
+			font-size: 18px;
+			font-weight: 100;
+			line-height: 1em;
+			padding: 1em;
+		}
+
+		div#options {
+			display: none;
+			background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 0px 0px 10px 10px;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
+			color: white;
+			padding: 1em;
+		}
+
+		div#options div#fortunes>div {
+			width: 150px;
+			float: left;
+			text-align: right;
+			font-size: 12px;
+		}
+
+		div#options div#fortunes span {
+			cursor: pointer;
+			text-decoration: underline;
+			color: #F00;
+		}
+
+		div#options div.header {
+			clear: left;
+			text-align: left;
+		}
+
+		div#options div#themes>div {
+			width: 75px;
+			float: left;
+			text-align: right;
+			font-size: 12px;
+		}
+
+		div#options div#bar {
+			clear: left;
+			text-align: right;
+		}
+
+		div#toggle {
+			font-size: 18px;
+			float: right;
+			padding: 5px 10px;
+			cursor: pointer;
+			color: #999;
+		}
+
+		div#new {
+			background: none repeat scroll 0 0 rgba(0, 0, 0, 0.9);
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			z-index: 9000;
+			top: 0;
+			left: 0;
+			display: none;
+
+		}
+
+		div#new fieldset {
+			position: absolute;
+			z-index: 9001;
+			top: 25%;
+			left: 25%;
+			width: 50%;
+			color: #FFF;
+			font-size: 12px;
+			background: none repeat scroll 0 0 rgba(0, 0, 0, 1.0);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: 0px 0px 10px 10px;
+			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
+		}
+
+		div#new textarea {
+			width: 100%;
+			height: 350px;
+		}
+
+		/* Themes */
+		.theme-light body {
+			background-color: #FFF;
+		}
+
+		.theme-light div#cookie {
+			background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1) inset;
+		}
+
+		.theme-light div#fortune {
+			color: #FFF;
+		}
+
+		.theme-light div#source {
+			color: #000;
+		}
+
+		.theme-dark body {
+			background-color: #333;
+		}
+
+		.theme-dark div#cookie {
+			background: none repeat scroll 0 0 rgba(255, 255, 255, 0.1);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+			box-shadow: 0 3px 5px rgba(255, 255, 255, 0.1) inset;
+		}
+
+		.theme-dark div#fortune {
+			color: #FFF;
+		}
+
+		.theme-light div#source {
+			color: #FFF;
+		}
+	</style>
+</head>
+
+<body class="theme-light">
+	<div id="options">
+		<div class="header">
 			Select Fortune Files:
-		  <div id="fortunes"></div>
-		  <div id="bar">
-		    <button id="options_new">New Custom Fortune</button>
-		    <button id="options_save">Save / Close</button>
-		  </div>
 		</div>
-		<div id="toggle"><img src="gear.png" /></div>
-		<div id="new">
-			<fieldset>
-    		<legend>Create New/Update Fortune File:</legend>
-				<label for="new_name">Name:</label>
-				<input type="text" id="new_name" placeholder="my_quotes" />
-				<br />
-				<label for="new_content">Fortune Entries (separated by %):</label>
-				<textarea id="new_content"></textarea>
-				<button id="create">Create/Update</button>
-				<button id="delete">Delete</button>
-				<button id="cancel">Cancel</button>
-    	</fieldset>
+		<div id="fortunes"></div>
+		<div class="header">
+			Select Theme:
 		</div>
-
-		<div id="wrapper">
-			<div id="cookie">
-				<div id="fortune"></div>
-				<div id="source"></div>
+		<div id="themes">
+			<div>
+				<label for="theme_light">Light:</label>
+				<input type="radio" id="theme_light" name="theme" value="light" />
+			</div>
+			<div>
+				<label for="theme_dark">Dark:</label>
+				<input type="radio" id="theme_dark" name="theme" value="dark" />
 			</div>
 		</div>
+		<div id="bar">
+			<button id="options_new">New Custom Fortune</button>
+			<button id="options_save">Save / Close</button>
+		</div>
+	</div>
+	<div id="toggle"><img src="gear.png" /></div>
+	<div id="new">
+		<fieldset>
+			<legend>Create New/Update Fortune File:</legend>
+			<label for="new_name">Name:</label>
+			<input type="text" id="new_name" placeholder="my_quotes" />
+			<br />
+			<label for="new_content">Fortune Entries (separated by %):</label>
+			<textarea id="new_content"></textarea>
+			<button id="create">Create/Update</button>
+			<button id="delete">Delete</button>
+			<button id="cancel">Cancel</button>
+		</fieldset>
+	</div>
 
-		<script src="fortune.js"></script>
-	</body>
+	<div id="wrapper">
+		<div id="cookie">
+			<div id="fortune"></div>
+			<div id="source"></div>
+		</div>
+	</div>
+
+	<script src="fortune.js"></script>
+</body>
+
 </html>
